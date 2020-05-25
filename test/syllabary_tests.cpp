@@ -89,6 +89,49 @@ TEST(syllabaray_tests, test_random_word_3)
     }
 }
 
+TEST(syllabaray_tests, test_random_word_name)
+{
+    wgen::Syllabary syllabary("tgz", "AEIOU");
+    std::string word = syllabary.random_word(4, wgen::Syllabary::Format::Name);
+
+    ASSERT_EQ(word.length(), 4);
+    std::string_view upper_consonants = "TGZ";
+    std::string_view lower_consonants = "tgz";
+    std::string_view lower_vowels = "aeiou";
+    ASSERT_TRUE(upper_consonants.find(word[0]) != std::string_view::npos);
+    ASSERT_TRUE(lower_vowels.find(word[1]) != std::string_view::npos);
+    ASSERT_TRUE(lower_consonants.find(word[2]) != std::string_view::npos);
+    ASSERT_TRUE(lower_vowels.find(word[3]) != std::string_view::npos);
+}
+
+TEST(syllabaray_tests, test_random_word_lower)
+{
+    wgen::Syllabary syllabary("TGZ", "AEIOU");
+    std::string word = syllabary.random_word(4, wgen::Syllabary::Format::Lower);
+
+    ASSERT_EQ(word.length(), 4);
+    std::string_view lower_consonants = "tgz";
+    std::string_view lower_vowels = "aeiou";
+    ASSERT_TRUE(lower_consonants.find(word[0]) != std::string_view::npos);
+    ASSERT_TRUE(lower_vowels.find(word[1]) != std::string_view::npos);
+    ASSERT_TRUE(lower_consonants.find(word[2]) != std::string_view::npos);
+    ASSERT_TRUE(lower_vowels.find(word[3]) != std::string_view::npos);
+}
+
+TEST(syllabaray_tests, test_random_word_upper)
+{
+    wgen::Syllabary syllabary("tgz", "aeiou");
+    std::string word = syllabary.random_word(4, wgen::Syllabary::Format::Upper);
+
+    ASSERT_EQ(word.length(), 4);
+    std::string_view upper_consonants = "TGZ";
+    std::string_view upper_vowels = "AEIOU";
+    ASSERT_TRUE(upper_consonants.find(word[0]) != std::string_view::npos);
+    ASSERT_TRUE(upper_vowels.find(word[1]) != std::string_view::npos);
+    ASSERT_TRUE(upper_consonants.find(word[2]) != std::string_view::npos);
+    ASSERT_TRUE(upper_vowels.find(word[3]) != std::string_view::npos);
+}
+
 TEST(syllabaray_tests, test_number_of_possible_words)
 {
     std::string_view consonants = "tgz"; // length: 3
