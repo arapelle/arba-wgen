@@ -21,6 +21,9 @@ public:
     Syllabary(const std::string_view& consonants, const std::string_view& vowels, const std::string_view& codas = "");
     Syllabary(std::vector<char> consonants, std::vector<char> vowels, std::vector<char> codas = {});
     std::string random_word(unsigned word_length, Format format = Format::No_format) const;
+    inline std::string random_name(unsigned word_length) const { return random_word(word_length, Format::Name); }
+    inline std::string random_lowercase_word(unsigned word_length) const { return random_word(word_length, Format::Lower); }
+    inline std::string random_uppercase_word(unsigned word_length) const { return random_word(word_length, Format::Upper); }
     std::size_t number_of_possible_words(unsigned word_length) const;
 
     inline const std::vector<char>& consonants() const { return consonants_; }
