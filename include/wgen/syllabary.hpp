@@ -20,10 +20,18 @@ public:
 
     Syllabary(const std::string_view& consonants, const std::string_view& vowels, const std::string_view& codas = "");
     Syllabary(std::vector<char> consonants, std::vector<char> vowels, std::vector<char> codas = {});
+
     std::string random_word(unsigned word_length, Format format = Format::No_format) const;
     inline std::string random_name(unsigned word_length) const { return random_word(word_length, Format::Name); }
     inline std::string random_lowercase_word(unsigned word_length) const { return random_word(word_length, Format::Lower); }
     inline std::string random_uppercase_word(unsigned word_length) const { return random_word(word_length, Format::Upper); }
+
+    std::string format_word(std::string_view format_str, const char c_char = 'c', const char v_char = 'v',
+                            Format format = Format::No_format) const;
+    inline std::string format_name(std::string_view format_str, const char c_char = 'c', const char v_char = 'v') const;
+    inline std::string format_lowercase_word(std::string_view format_str, const char c_char = 'c', const char v_char = 'v') const;
+    inline std::string format_uppercase_word(std::string_view format_str, const char c_char = 'c', const char v_char = 'v') const;
+
     std::size_t number_of_possible_words(unsigned word_length) const;
 
     inline const std::vector<char>& consonants() const { return consonants_; }
@@ -32,11 +40,28 @@ public:
 
 private:
     void format_(std::string& word, Format format) const;
-    std::string random_syllable_() const;
+    char random_consonant_() const;
+    char random_vowel_() const;
+    char random_coda_() const;
 
     std::vector<char> consonants_;
     std::vector<char> vowels_;
     std::vector<char> codas_;
 };
+
+inline std::string Syllabary::format_name(std::string_view format_str, const char c_char, const char v_char) const
+{
+    return format_word(format_str, c_char, v_char, Format::Name);
+}
+
+inline std::string Syllabary::format_lowercase_word(std::string_view format_str, const char c_char, const char v_char) const
+{
+    return format_word(format_str, c_char, v_char, Format::Lower);
+}
+
+inline std::string Syllabary::format_uppercase_word(std::string_view format_str, const char c_char, const char v_char) const
+{
+    return format_word(format_str, c_char, v_char, Format::Upper);
+}
 
 }
