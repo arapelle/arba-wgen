@@ -1,7 +1,7 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-list(PREPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/include)
+list(PREPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 # Standard includes
 include(CMakePrintHelpers)
