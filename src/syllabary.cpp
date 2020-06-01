@@ -45,6 +45,11 @@ std::string Syllabary::random_word(unsigned word_length, Format format) const
     return word;
 }
 
+strn::string64 Syllabary::random_word64(unsigned word_length, Format format) const
+{
+    return strn::string64(random_word(word_length, format));
+}
+
 std::string Syllabary::format_word(std::string_view format_str, const char c_char, const char v_char, Format format) const
 {
     std::string word;
@@ -78,6 +83,11 @@ std::string Syllabary::format_word(std::string_view format_str, const char c_cha
         format_(word, format);
 
     return word;
+}
+
+strn::string64 Syllabary::format_word64(std::string_view format_str, const char c_char, const char v_char, Format format) const
+{
+    return strn::string64(format_word(format_str, c_char, v_char, format));
 }
 
 std::size_t Syllabary::number_of_possible_words(unsigned word_length) const

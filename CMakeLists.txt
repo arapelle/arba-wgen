@@ -11,6 +11,7 @@ include(cmtk/CppLibraryProject)
 #-----
 # PROJECT
 
+check_cmake_binary_dir()
 set_build_type_if_undefined()
 
 #-----
@@ -28,5 +29,13 @@ add_public_cpp_library(
     VERSION_HEADER "version.hpp"
     VERBOSE_PACKAGE_CONFIG_FILE
 )
+
+set(strn_version "0.1.0")
+if(TARGET wgen)
+    target_package_libraries(wgen PUBLIC strn ${strn_version} RELEASE strn)
+endif()
+if(TARGET wgen-static)
+    target_package_libraries(wgen-static PUBLIC strn ${strn_version} RELEASE strn)
+endif()
 
 #-----
