@@ -1,4 +1,4 @@
-#pragma once 
+#pragma once
 
 #include <strn/string64.hpp>
 #include <string>
@@ -11,6 +11,9 @@ namespace wgen
 class Syllabary
 {
 public:
+    inline static constexpr char default_format_consonant = 'c';
+    inline static constexpr char default_format_vowel = 'v';
+
     enum class Format : uint64_t
     {
         No_format, // No format
@@ -32,17 +35,23 @@ public:
     inline strn::string64 random_lowercase_word64(unsigned word_length) const { return random_word64(word_length, Format::Lower); }
     inline strn::string64 random_uppercase_word64(unsigned word_length) const { return random_word64(word_length, Format::Upper); }
 
-    std::string format_word(std::string_view format_str, const char c_char = 'c', const char v_char = 'v',
-                            Format format = Format::No_format) const;
-    inline std::string format_name(std::string_view format_str, const char c_char = 'c', const char v_char = 'v') const;
-    inline std::string format_lowercase_word(std::string_view format_str, const char c_char = 'c', const char v_char = 'v') const;
-    inline std::string format_uppercase_word(std::string_view format_str, const char c_char = 'c', const char v_char = 'v') const;
+    std::string format_word(std::string_view format_str, const char c_char = default_format_consonant,
+                            const char v_char = default_format_vowel, Format format = Format::No_format) const;
+    inline std::string format_name(std::string_view format_str, const char c_char = default_format_consonant,
+                                   const char v_char = default_format_vowel) const;
+    inline std::string format_lowercase_word(std::string_view format_str, const char c_char = default_format_consonant,
+                                             const char v_char = default_format_vowel) const;
+    inline std::string format_uppercase_word(std::string_view format_str, const char c_char = default_format_consonant,
+                                             const char v_char = default_format_vowel) const;
 
-    strn::string64 format_word64(std::string_view format_str, const char c_char = 'c', const char v_char = 'v',
-                               Format format = Format::No_format) const;
-    inline strn::string64 format_name64(std::string_view format_str, const char c_char = 'c', const char v_char = 'v') const;
-    inline strn::string64 format_lowercase_word64(std::string_view format_str, const char c_char = 'c', const char v_char = 'v') const;
-    inline strn::string64 format_uppercase_word64(std::string_view format_str, const char c_char = 'c', const char v_char = 'v') const;
+    strn::string64 format_word64(std::string_view format_str, const char c_char = default_format_consonant,
+                                 const char v_char = default_format_vowel, Format format = Format::No_format) const;
+    inline strn::string64 format_name64(std::string_view format_str, const char c_char = default_format_consonant,
+                                        const char v_char = default_format_vowel) const;
+    inline strn::string64 format_lowercase_word64(std::string_view format_str, const char c_char = default_format_consonant,
+                                                  const char v_char = default_format_vowel) const;
+    inline strn::string64 format_uppercase_word64(std::string_view format_str, const char c_char = default_format_consonant,
+                                                  const char v_char = default_format_vowel) const;
 
     std::size_t number_of_possible_words(unsigned word_length) const;
 
