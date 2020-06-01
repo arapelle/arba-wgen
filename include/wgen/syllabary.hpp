@@ -8,7 +8,7 @@
 
 namespace wgen
 {
-class Syllabary
+class syllabary
 {
 public:
     inline static constexpr char default_format_consonant = 'c';
@@ -22,8 +22,8 @@ public:
         Upper,     // UPPERCASE
     };
 
-    Syllabary(const std::string_view& consonants, const std::string_view& vowels, const std::string_view& codas = "");
-    Syllabary(std::vector<char> consonants, std::vector<char> vowels, std::vector<char> codas = {});
+    syllabary(const std::string_view& consonants, const std::string_view& vowels, const std::string_view& codas = "");
+    syllabary(std::vector<char> consonants, std::vector<char> vowels, std::vector<char> codas = {});
 
     std::string random_word(unsigned word_length, Format format = Format::No_format) const;
     inline std::string random_name(unsigned word_length) const { return random_word(word_length, Format::Name); }
@@ -73,32 +73,32 @@ private:
     std::vector<char> codas_;
 };
 
-inline std::string Syllabary::format_name(std::string_view format_str, const char c_char, const char v_char) const
+inline std::string syllabary::format_name(std::string_view format_str, const char c_char, const char v_char) const
 {
     return format_word(format_str, c_char, v_char, Format::Name);
 }
 
-inline std::string Syllabary::format_lowercase_word(std::string_view format_str, const char c_char, const char v_char) const
+inline std::string syllabary::format_lowercase_word(std::string_view format_str, const char c_char, const char v_char) const
 {
     return format_word(format_str, c_char, v_char, Format::Lower);
 }
 
-inline std::string Syllabary::format_uppercase_word(std::string_view format_str, const char c_char, const char v_char) const
+inline std::string syllabary::format_uppercase_word(std::string_view format_str, const char c_char, const char v_char) const
 {
     return format_word(format_str, c_char, v_char, Format::Upper);
 }
 
-inline strn::string64 Syllabary::format_name64(std::string_view format_str, const char c_char, const char v_char) const
+inline strn::string64 syllabary::format_name64(std::string_view format_str, const char c_char, const char v_char) const
 {
     return format_word64(format_str, c_char, v_char, Format::Name);
 }
 
-inline strn::string64 Syllabary::format_lowercase_word64(std::string_view format_str, const char c_char, const char v_char) const
+inline strn::string64 syllabary::format_lowercase_word64(std::string_view format_str, const char c_char, const char v_char) const
 {
     return format_word64(format_str, c_char, v_char, Format::Lower);
 }
 
-inline strn::string64 Syllabary::format_uppercase_word64(std::string_view format_str, const char c_char, const char v_char) const
+inline strn::string64 syllabary::format_uppercase_word64(std::string_view format_str, const char c_char, const char v_char) const
 {
     return format_word64(format_str, c_char, v_char, Format::Upper);
 }

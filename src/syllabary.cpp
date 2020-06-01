@@ -8,18 +8,18 @@ namespace wgen
 {
 ////////////////////////////////////////////////////////////////////////////////
 
-Syllabary::Syllabary(const std::string_view &consonants, const std::string_view &vowels, const std::string_view &codas)
+syllabary::syllabary(const std::string_view &consonants, const std::string_view &vowels, const std::string_view &codas)
     : consonants_(consonants.begin(), consonants.end()),
       vowels_(vowels.begin(), vowels.end()), codas_(codas.begin(), codas.end())
 {
 }
 
-Syllabary::Syllabary(std::vector<char> consonants, std::vector<char> vowels, std::vector<char> codas)
+syllabary::syllabary(std::vector<char> consonants, std::vector<char> vowels, std::vector<char> codas)
     : consonants_(std::move(consonants)), vowels_(std::move(vowels)), codas_(std::move(codas))
 {
 }
 
-std::string Syllabary::random_word(unsigned word_length, Format format) const
+std::string syllabary::random_word(unsigned word_length, Format format) const
 {
     std::string word;
     word.resize(word_length);
@@ -29,7 +29,7 @@ std::string Syllabary::random_word(unsigned word_length, Format format) const
     return word;
 }
 
-strn::string64 Syllabary::random_word64(unsigned word_length, Format format) const
+strn::string64 syllabary::random_word64(unsigned word_length, Format format) const
 {
     strn::string64 word;
     word_length = std::min<unsigned>(word_length, word.max_length());
@@ -37,7 +37,7 @@ strn::string64 Syllabary::random_word64(unsigned word_length, Format format) con
     return word;
 }
 
-void Syllabary::format_word_(char* first, char* last, std::string_view format_str,
+void syllabary::format_word_(char* first, char* last, std::string_view format_str,
                              const char c_char, const char v_char, Format format) const
 {
     if (format_str.length() > 0)
@@ -73,14 +73,14 @@ void Syllabary::format_word_(char* first, char* last, std::string_view format_st
     }
 }
 
-std::string Syllabary::format_word(std::string_view format_str, const char c_char, const char v_char, Format format) const
+std::string syllabary::format_word(std::string_view format_str, const char c_char, const char v_char, Format format) const
 {
     std::string word(format_str.length(), '?');
     format_word_(&*word.begin(), &*word.end(), format_str, c_char, v_char, format);
     return word;
 }
 
-strn::string64 Syllabary::format_word64(std::string_view format_str, const char c_char, const char v_char, Format format) const
+strn::string64 syllabary::format_word64(std::string_view format_str, const char c_char, const char v_char, Format format) const
 {
     strn::string64 word;
     std::size_t word_length = std::min(format_str.size(), word.max_length());
@@ -89,7 +89,7 @@ strn::string64 Syllabary::format_word64(std::string_view format_str, const char 
     return word;
 }
 
-std::size_t Syllabary::number_of_possible_words(unsigned word_length) const
+std::size_t syllabary::number_of_possible_words(unsigned word_length) const
 {
     if (word_length > 0)
     {
@@ -106,7 +106,7 @@ std::size_t Syllabary::number_of_possible_words(unsigned word_length) const
 
 // private
 
-void Syllabary::random_word_(char* first, char* last, unsigned word_length, Format format) const
+void syllabary::random_word_(char* first, char* last, unsigned word_length, Format format) const
 {
     if (word_length > 0)
     {
@@ -130,7 +130,7 @@ void Syllabary::random_word_(char* first, char* last, unsigned word_length, Form
     }
 }
 
-void Syllabary::format_(char* first, char* last, Format format) const
+void syllabary::format_(char* first, char* last, Format format) const
 {
     auto& facet = std::use_facet<std::ctype<std::string::value_type>>(std::locale());
     switch (format)
@@ -158,19 +158,19 @@ void Syllabary::format_(char* first, char* last, Format format) const
     }
 }
 
-char Syllabary::random_consonant_() const
+char syllabary::random_consonant_() const
 {
     std::size_t idx = std::experimental::randint<std::size_t>(0, consonants_.size()-1);
     return consonants_[idx];
 }
 
-char Syllabary::random_vowel_() const
+char syllabary::random_vowel_() const
 {
     std::size_t idx = std::experimental::randint<std::size_t>(0, vowels_.size()-1);
     return vowels_[idx];
 }
 
-char Syllabary::random_coda_() const
+char syllabary::random_coda_() const
 {
     std::size_t idx = std::experimental::randint<std::size_t>(0, codas_.size()-1);
     return codas_[idx];

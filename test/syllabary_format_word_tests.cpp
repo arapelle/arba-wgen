@@ -5,7 +5,7 @@
 
 TEST(syllabaray_format_tests, test_format_word_1)
 {
-    wgen::Syllabary syllabary("tgz", "aeiou", "klr");
+    wgen::syllabary syllabary("tgz", "aeiou", "klr");
     std::string word = syllabary.format_word("vcvcvc");
 
     ASSERT_EQ(word.length(), 6);
@@ -22,7 +22,7 @@ TEST(syllabaray_format_tests, test_format_word_1)
 
 TEST(syllabaray_format_tests, test_format_word_2)
 {
-    wgen::Syllabary syllabary("tgz", "aeiou");
+    wgen::syllabary syllabary("tgz", "aeiou");
     std::string word = syllabary.format_word("vcvcvc");
 
     ASSERT_EQ(word.length(), 6);
@@ -40,7 +40,7 @@ TEST(syllabaray_format_tests, test_format_word_2)
 
 TEST(syllabaray_format_tests, test_format_word_3)
 {
-    wgen::Syllabary syllabary("tgz", "aeiou", "klr");
+    wgen::syllabary syllabary("tgz", "aeiou", "klr");
     std::string word = syllabary.format_word("br..:a:", ':', '.');
 
     ASSERT_EQ(word.length(), 7);
@@ -58,8 +58,8 @@ TEST(syllabaray_format_tests, test_format_word_3)
 
 TEST(syllabaray_format_tests, test_format_word_name)
 {
-    wgen::Syllabary syllabary("TGZ", "aeiou", "KLR");
-    std::string word = syllabary.format_word("abab", 'b', 'a', wgen::Syllabary::Format::Name);
+    wgen::syllabary syllabary("TGZ", "aeiou", "KLR");
+    std::string word = syllabary.format_word("abab", 'b', 'a', wgen::syllabary::Format::Name);
 
     ASSERT_EQ(word.length(), 4);
     std::string_view consonants = "tgz";
@@ -74,8 +74,8 @@ TEST(syllabaray_format_tests, test_format_word_name)
 
 TEST(syllabaray_format_tests, test_format_word_lower)
 {
-    wgen::Syllabary syllabary("TGZ", "AEIOU", "KLR");
-    std::string word = syllabary.format_word("ababab", 'b', 'a', wgen::Syllabary::Format::Lower);
+    wgen::syllabary syllabary("TGZ", "AEIOU", "KLR");
+    std::string word = syllabary.format_word("ababab", 'b', 'a', wgen::syllabary::Format::Lower);
 
     ASSERT_EQ(word.length(), 6);
     std::string_view consonants = "tgz";
@@ -91,8 +91,8 @@ TEST(syllabaray_format_tests, test_format_word_lower)
 
 TEST(syllabaray_format_tests, test_format_word_upper)
 {
-    wgen::Syllabary syllabary("tgz", "aei", "kl");
-    std::string word = syllabary.format_word("abab", 'b', 'a', wgen::Syllabary::Format::Upper);
+    wgen::syllabary syllabary("tgz", "aei", "kl");
+    std::string word = syllabary.format_word("abab", 'b', 'a', wgen::syllabary::Format::Upper);
 
     ASSERT_EQ(word.length(), 4);
     std::string_view consonants = "TGZ";
@@ -106,7 +106,7 @@ TEST(syllabaray_format_tests, test_format_word_upper)
 
 TEST(syllabaray_format_tests, test_format_name)
 {
-    wgen::Syllabary syllabary("TGZ", "aeiou", "KLR");
+    wgen::syllabary syllabary("TGZ", "aeiou", "KLR");
     std::string word = syllabary.format_name("vbvb", 'b');
 
     ASSERT_EQ(word.length(), 4);
@@ -122,7 +122,7 @@ TEST(syllabaray_format_tests, test_format_name)
 
 TEST(syllabaray_format_tests, test_format_lowercase_word)
 {
-    wgen::Syllabary syllabary("TGZ", "AEIOU", "KLR");
+    wgen::syllabary syllabary("TGZ", "AEIOU", "KLR");
     std::string word = syllabary.format_lowercase_word("ababab", 'b', 'a');
 
     ASSERT_EQ(word.length(), 6);
@@ -139,7 +139,7 @@ TEST(syllabaray_format_tests, test_format_lowercase_word)
 
 TEST(syllabaray_format_tests, test_format_uppercase_word)
 {
-    wgen::Syllabary syllabary("tgz", "aei", "kl");
+    wgen::syllabary syllabary("tgz", "aei", "kl");
     std::string word = syllabary.format_uppercase_word("abab", 'b', 'a');
 
     ASSERT_EQ(word.length(), 4);

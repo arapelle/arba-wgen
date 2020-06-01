@@ -5,7 +5,7 @@
 
 TEST(syllabaray_tests, test_constructor_strv)
 {
-    wgen::Syllabary syllabary("tgz", "aeiou", "klr");
+    wgen::syllabary syllabary("tgz", "aeiou", "klr");
 
     std::vector<char> expected_consonants{'t', 'g', 'z'};
     std::vector<char> expected_vowels{'a', 'e', 'i', 'o', 'u'};
@@ -20,7 +20,7 @@ TEST(syllabaray_tests, test_constructor_vector)
     std::vector<char> consonants{'t', 'z', 'g'};
     std::vector<char> vowels{'a', 'e', 'i', 'u'};
     std::vector<char> codas{'k', 'l', 'x'};
-    wgen::Syllabary syllabary(std::move(consonants), std::move(vowels), std::move(codas));
+    wgen::syllabary syllabary(std::move(consonants), std::move(vowels), std::move(codas));
 
     std::vector<char> expected_consonants{'t', 'z', 'g'};
     std::vector<char> expected_vowels{'a', 'e', 'i', 'u'};
@@ -35,7 +35,7 @@ TEST(syllabaray_tests, test_number_of_possible_words)
     std::string_view consonants = "tgz"; // length: 3
     std::string_view vowels = "aeiou"; // length: 5
     std::string_view codas = "klxr"; // length: 4
-    wgen::Syllabary syllabary(consonants, vowels, codas);
+    wgen::syllabary syllabary(consonants, vowels, codas);
     ASSERT_EQ(syllabary.number_of_possible_words(2), 3 * 5);
     ASSERT_EQ(syllabary.number_of_possible_words(3), 15 * (5 + 4));
     ASSERT_EQ(syllabary.number_of_possible_words(4), 15 * 15);
@@ -47,7 +47,7 @@ TEST(syllabaray_tests, test_random_word64_1)
     std::string_view consonants = "tgz";
     std::string_view vowels = "aeiou";
     std::string_view codas = "";
-    wgen::Syllabary syllabary(consonants, vowels, codas);
+    wgen::syllabary syllabary(consonants, vowels, codas);
 
     strn::string64 word = syllabary.random_word64(5);
     ASSERT_EQ(word.length(), 5);

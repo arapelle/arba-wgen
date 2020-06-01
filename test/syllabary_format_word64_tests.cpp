@@ -5,7 +5,7 @@
 
 TEST(syllabaray_format64_tests, test_format_word64_1)
 {
-    wgen::Syllabary syllabary("tgz", "aeiou", "klr");
+    wgen::syllabary syllabary("tgz", "aeiou", "klr");
     strn::string64 word = syllabary.format_word64("vcvcvc");
 
     ASSERT_EQ(word.length(), 6);
@@ -22,7 +22,7 @@ TEST(syllabaray_format64_tests, test_format_word64_1)
 
 TEST(syllabaray_format64_tests, test_format_word64_2)
 {
-    wgen::Syllabary syllabary("tgz", "aeiou");
+    wgen::syllabary syllabary("tgz", "aeiou");
     strn::string64 word = syllabary.format_word64("vcvcvc");
 
     ASSERT_EQ(word.length(), 6);
@@ -40,7 +40,7 @@ TEST(syllabaray_format64_tests, test_format_word64_2)
 
 TEST(syllabaray_format64_tests, test_format_word64_3)
 {
-    wgen::Syllabary syllabary("tgz", "aeiou", "klr");
+    wgen::syllabary syllabary("tgz", "aeiou", "klr");
     strn::string64 word = syllabary.format_word64("br..:a:", ':', '.');
 
     ASSERT_EQ(word.length(), 7);
@@ -58,8 +58,8 @@ TEST(syllabaray_format64_tests, test_format_word64_3)
 
 TEST(syllabaray_format64_tests, test_format_word64_name)
 {
-    wgen::Syllabary syllabary("TGZ", "aeiou", "KLR");
-    strn::string64 word = syllabary.format_word64("abab", 'b', 'a', wgen::Syllabary::Format::Name);
+    wgen::syllabary syllabary("TGZ", "aeiou", "KLR");
+    strn::string64 word = syllabary.format_word64("abab", 'b', 'a', wgen::syllabary::Format::Name);
 
     ASSERT_EQ(word.length(), 4);
     std::string_view consonants = "tgz";
@@ -74,8 +74,8 @@ TEST(syllabaray_format64_tests, test_format_word64_name)
 
 TEST(syllabaray_format64_tests, test_format_word64_lower)
 {
-    wgen::Syllabary syllabary("TGZ", "AEIOU", "KLR");
-    strn::string64 word = syllabary.format_word64("ababab", 'b', 'a', wgen::Syllabary::Format::Lower);
+    wgen::syllabary syllabary("TGZ", "AEIOU", "KLR");
+    strn::string64 word = syllabary.format_word64("ababab", 'b', 'a', wgen::syllabary::Format::Lower);
 
     ASSERT_EQ(word.length(), 6);
     std::string_view consonants = "tgz";
@@ -91,8 +91,8 @@ TEST(syllabaray_format64_tests, test_format_word64_lower)
 
 TEST(syllabaray_format64_tests, test_format_word64_upper)
 {
-    wgen::Syllabary syllabary("tgz", "aei", "kl");
-    strn::string64 word = syllabary.format_word64("abab", 'b', 'a', wgen::Syllabary::Format::Upper);
+    wgen::syllabary syllabary("tgz", "aei", "kl");
+    strn::string64 word = syllabary.format_word64("abab", 'b', 'a', wgen::syllabary::Format::Upper);
 
     ASSERT_EQ(word.length(), 4);
     std::string_view consonants = "TGZ";
@@ -106,7 +106,7 @@ TEST(syllabaray_format64_tests, test_format_word64_upper)
 
 TEST(syllabaray_format64_tests, test_format_name64)
 {
-    wgen::Syllabary syllabary("TGZ", "aeiou", "KLR");
+    wgen::syllabary syllabary("TGZ", "aeiou", "KLR");
     strn::string64 word = syllabary.format_name64("vbvb", 'b');
 
     ASSERT_EQ(word.length(), 4);
@@ -122,7 +122,7 @@ TEST(syllabaray_format64_tests, test_format_name64)
 
 TEST(syllabaray_format64_tests, test_format_lowercase_word64)
 {
-    wgen::Syllabary syllabary("TGZ", "AEIOU", "KLR");
+    wgen::syllabary syllabary("TGZ", "AEIOU", "KLR");
     strn::string64 word = syllabary.format_lowercase_word64("ababab", 'b', 'a');
 
     ASSERT_EQ(word.length(), 6);
@@ -139,7 +139,7 @@ TEST(syllabaray_format64_tests, test_format_lowercase_word64)
 
 TEST(syllabaray_format64_tests, test_format_uppercase_word64)
 {
-    wgen::Syllabary syllabary("tgz", "aei", "kl");
+    wgen::syllabary syllabary("tgz", "aei", "kl");
     strn::string64 word = syllabary.format_uppercase_word64("abab", 'b', 'a');
 
     ASSERT_EQ(word.length(), 4);
