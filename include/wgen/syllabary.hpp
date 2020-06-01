@@ -60,7 +60,8 @@ public:
     inline const std::vector<char>& codas() const { return codas_; }
 
 private:
-    void format_(std::string& word, Format format) const;
+    void random_word_(char* first, char* last, unsigned word_length, Format format) const;
+    void format_(char* first, char* last, Format format) const;
     char random_consonant_() const;
     char random_vowel_() const;
     char random_coda_() const;
