@@ -61,6 +61,8 @@ public:
 
 private:
     void random_word_(char* first, char* last, unsigned word_length, Format format) const;
+    void format_word_(char* first, char* last, std::string_view format_str,
+                      const char c_char, const char v_char, Format format) const;
     void format_(char* first, char* last, Format format) const;
     char random_consonant_() const;
     char random_vowel_() const;
