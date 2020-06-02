@@ -35,6 +35,36 @@ Use the following to quickly install a different mode.
 cmake -DCMAKE_BUILD_TYPE=Debug -P cmake_quick_install.cmake
 ```
 
+# How to use
+## Example - Generate a random word
+```c++
+#include <wgen/default_syllabary.hpp>
+#include <iostream>
+
+int main()
+{
+    wgen::default_syllabary syllabary;
+    std::string word = syllabary.random_word(7);
+    std::cout << word << std::endl;
+    return EXIT_SUCCESS;
+}
+```
+
+## Example - Format a strn::string64
+```c++
+#include <wgen/default_syllabary.hpp>
+#include <strn/io.hpp>
+#include <iostream>
+
+int main()
+{
+    wgen::default_syllabary syllabary;
+    strn::string64 word = syllabary.format_word64("[cvcvc]");
+    std::cout << word << std::endl; // prints [tutil] for example
+    return EXIT_SUCCESS;
+}
+```
+
 # License
 
 [MIT License](./LICENSE.md) © wgen
