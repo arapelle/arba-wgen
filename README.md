@@ -59,8 +59,8 @@ int main()
 int main()
 {
     wgen::default_syllabary syllabary;
-    strn::string64 word = syllabary.format_word64("[cvcvc]");
-    std::cout << word << std::endl; // prints [tutil] for example
+    strn::string64 word = syllabary.format_word64("[cv-cvc]");
+    std::cout << word << std::endl; // prints [vo-dof]
     return EXIT_SUCCESS;
 }
 ```
