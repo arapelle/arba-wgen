@@ -73,6 +73,8 @@ private:
     std::vector<char> codas_;
 };
 
+// syllabary implementation:
+
 inline std::string syllabary::format_name(std::string_view format_str, const char c_char, const char v_char) const
 {
     return format_word(format_str, c_char, v_char, Format::Name);
