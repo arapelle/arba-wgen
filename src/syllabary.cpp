@@ -37,55 +37,21 @@ strn::string64 syllabary::random_word64(unsigned word_length, Format format) con
     return word;
 }
 
-void syllabary::format_word_(char* first, char* last, std::string_view format_str,
-                             const char c_char, const char v_char, Format format) const
-{
-    if (format_str.length() > 0)
-    {
-        char* iter = first;
-
-        auto fmt_iter = format_str.begin();
-        for (auto fmt_end_iter = codas_.empty() ? format_str.end() : format_str.end() - 1;
-             fmt_iter < fmt_end_iter;
-             ++fmt_iter)
-        {
-            char ch = *fmt_iter;
-            if (ch == c_char)
-                *iter = random_consonant_();
-            else if (ch == v_char)
-                *iter = random_vowel_();
-            else
-                *iter = ch;
-            ++iter;
-        }
-        if (fmt_iter != format_str.end())
-        {
-            char ch = *fmt_iter;
-            if (ch == c_char)
-                *iter = random_coda_();
-            else if (ch == v_char)
-                *iter = random_vowel_();
-            else
-                *iter = ch;
-        }
-
-        format_(first, last, format);
-    }
-}
-
-std::string syllabary::format_word(std::string_view format_str, const char c_char, const char v_char, Format format) const
+std::string syllabary::format_word(std::string_view format_str, const char c_char, const char v_char,
+                                   const char q_char, Format format) const
 {
     std::string word(format_str.length(), '?');
-    format_word_(&*word.begin(), &*word.end(), format_str, c_char, v_char, format);
+    format_word_(&*word.begin(), &*word.end(), format_str, c_char, v_char, q_char, format);
     return word;
 }
 
-strn::string64 syllabary::format_word64(std::string_view format_str, const char c_char, const char v_char, Format format) const
+strn::string64 syllabary::format_word64(std::string_view format_str, const char c_char, const char v_char,
+                                        const char q_char, Format format) const
 {
     strn::string64 word;
     std::size_t word_length = std::min(format_str.size(), word.max_length());
     format_str = format_str.substr(0, word_length);
-    format_word_(&*word.begin(), &*std::next(word.begin(), word_length), format_str, c_char, v_char, format);
+    format_word_(&*word.begin(), &*std::next(word.begin(), word_length), format_str, c_char, v_char, q_char, format);
     return word;
 }
 
@@ -124,6 +90,46 @@ void syllabary::random_word_(char* first, char* last, unsigned word_length, Form
         if (iter != last)
         {
             *iter++ = codas_.empty() ? random_consonant_() : random_coda_();
+        }
+
+        format_(first, last, format);
+    }
+}
+
+void syllabary::format_word_(char* first, char* last, std::string_view format_str,
+                             const char c_char, const char v_char, const char q_char, Format format) const
+{
+    if (format_str.length() > 0)
+    {
+        char* iter = first;
+
+        auto fmt_iter = format_str.begin();
+        for (auto fmt_end_iter = codas_.empty() ? format_str.end() : format_str.end() - 1;
+             fmt_iter < fmt_end_iter;
+             ++fmt_iter)
+        {
+            char ch = *fmt_iter;
+            if (ch == c_char)
+                *iter = random_consonant_();
+            else if (ch == v_char)
+                *iter = random_vowel_();
+            else if (ch == q_char)
+                *iter = random_coda_();
+            else
+                *iter = ch;
+            ++iter;
+        }
+        if (fmt_iter != format_str.end())
+        {
+            char ch = *fmt_iter;
+            if (ch == c_char)
+                *iter = random_consonant_();
+            else if (ch == v_char)
+                *iter = random_vowel_();
+            else if (ch == q_char)
+                *iter = random_coda_();
+            else
+                *iter = ch;
         }
 
         format_(first, last, format);

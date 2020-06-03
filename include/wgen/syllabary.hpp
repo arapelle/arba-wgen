@@ -13,6 +13,7 @@ class syllabary
 public:
     inline static constexpr char default_format_consonant = 'c';
     inline static constexpr char default_format_vowel = 'v';
+    inline static constexpr char default_format_coda = 'q';
 
     enum class Format : uint64_t
     {
@@ -35,23 +36,41 @@ public:
     inline strn::string64 random_lowercase_word64(unsigned word_length) const { return random_word64(word_length, Format::Lower); }
     inline strn::string64 random_uppercase_word64(unsigned word_length) const { return random_word64(word_length, Format::Upper); }
 
-    std::string format_word(std::string_view format_str, const char c_char = default_format_consonant,
-                            const char v_char = default_format_vowel, Format format = Format::No_format) const;
-    inline std::string format_name(std::string_view format_str, const char c_char = default_format_consonant,
-                                   const char v_char = default_format_vowel) const;
-    inline std::string format_lowercase_word(std::string_view format_str, const char c_char = default_format_consonant,
-                                             const char v_char = default_format_vowel) const;
-    inline std::string format_uppercase_word(std::string_view format_str, const char c_char = default_format_consonant,
-                                             const char v_char = default_format_vowel) const;
+    std::string format_word(std::string_view format_str,
+                            const char c_char = default_format_consonant,
+                            const char v_char = default_format_vowel,
+                            const char q_char = default_format_coda,
+                            Format format = Format::No_format) const;
+    inline std::string format_name(std::string_view format_str,
+                                   const char c_char = default_format_consonant,
+                                   const char v_char = default_format_vowel,
+                                   const char q_char = default_format_coda) const;
+    inline std::string format_lowercase_word(std::string_view format_str,
+                                             const char c_char = default_format_consonant,
+                                             const char v_char = default_format_vowel,
+                                             const char q_char = default_format_coda) const;
+    inline std::string format_uppercase_word(std::string_view format_str,
+                                             const char c_char = default_format_consonant,
+                                             const char v_char = default_format_vowel,
+                                             const char q_char = default_format_coda) const;
 
-    strn::string64 format_word64(std::string_view format_str, const char c_char = default_format_consonant,
-                                 const char v_char = default_format_vowel, Format format = Format::No_format) const;
-    inline strn::string64 format_name64(std::string_view format_str, const char c_char = default_format_consonant,
-                                        const char v_char = default_format_vowel) const;
-    inline strn::string64 format_lowercase_word64(std::string_view format_str, const char c_char = default_format_consonant,
-                                                  const char v_char = default_format_vowel) const;
-    inline strn::string64 format_uppercase_word64(std::string_view format_str, const char c_char = default_format_consonant,
-                                                  const char v_char = default_format_vowel) const;
+    strn::string64 format_word64(std::string_view format_str,
+                                 const char c_char = default_format_consonant,
+                                 const char v_char = default_format_vowel,
+                                 const char q_char = default_format_coda,
+                                 Format format = Format::No_format) const;
+    inline strn::string64 format_name64(std::string_view format_str,
+                                        const char c_char = default_format_consonant,
+                                        const char v_char = default_format_vowel,
+                                        const char q_char = default_format_coda) const;
+    inline strn::string64 format_lowercase_word64(std::string_view format_str,
+                                                  const char c_char = default_format_consonant,
+                                                  const char v_char = default_format_vowel,
+                                                  const char q_char = default_format_coda) const;
+    inline strn::string64 format_uppercase_word64(std::string_view format_str,
+                                                  const char c_char = default_format_consonant,
+                                                  const char v_char = default_format_vowel,
+                                                  const char q_char = default_format_coda) const;
 
     std::size_t number_of_possible_words(unsigned word_length) const;
 
@@ -62,7 +81,7 @@ public:
 private:
     void random_word_(char* first, char* last, unsigned word_length, Format format) const;
     void format_word_(char* first, char* last, std::string_view format_str,
-                      const char c_char, const char v_char, Format format) const;
+                      const char c_char, const char v_char, const char q_char, Format format) const;
     void format_(char* first, char* last, Format format) const;
     char random_consonant_() const;
     char random_vowel_() const;
@@ -75,34 +94,40 @@ private:
 
 // syllabary implementation:
 
-inline std::string syllabary::format_name(std::string_view format_str, const char c_char, const char v_char) const
+inline std::string syllabary::format_name(std::string_view format_str, const char c_char,
+                                          const char v_char, const char q_char) const
 {
-    return format_word(format_str, c_char, v_char, Format::Name);
+    return format_word(format_str, c_char, v_char, q_char, Format::Name);
 }
 
-inline std::string syllabary::format_lowercase_word(std::string_view format_str, const char c_char, const char v_char) const
+inline std::string syllabary::format_lowercase_word(std::string_view format_str, const char c_char,
+                                                    const char v_char, const char q_char) const
 {
-    return format_word(format_str, c_char, v_char, Format::Lower);
+    return format_word(format_str, c_char, v_char, q_char, Format::Lower);
 }
 
-inline std::string syllabary::format_uppercase_word(std::string_view format_str, const char c_char, const char v_char) const
+inline std::string syllabary::format_uppercase_word(std::string_view format_str, const char c_char,
+                                                    const char v_char, const char q_char) const
 {
-    return format_word(format_str, c_char, v_char, Format::Upper);
+    return format_word(format_str, c_char, v_char, q_char, Format::Upper);
 }
 
-inline strn::string64 syllabary::format_name64(std::string_view format_str, const char c_char, const char v_char) const
+inline strn::string64 syllabary::format_name64(std::string_view format_str, const char c_char,
+                                               const char v_char, const char q_char) const
 {
-    return format_word64(format_str, c_char, v_char, Format::Name);
+    return format_word64(format_str, c_char, v_char, q_char, Format::Name);
 }
 
-inline strn::string64 syllabary::format_lowercase_word64(std::string_view format_str, const char c_char, const char v_char) const
+inline strn::string64 syllabary::format_lowercase_word64(std::string_view format_str, const char c_char,
+                                                         const char v_char, const char q_char) const
 {
-    return format_word64(format_str, c_char, v_char, Format::Lower);
+    return format_word64(format_str, c_char, v_char, q_char, Format::Lower);
 }
 
-inline strn::string64 syllabary::format_uppercase_word64(std::string_view format_str, const char c_char, const char v_char) const
+inline strn::string64 syllabary::format_uppercase_word64(std::string_view format_str, const char c_char,
+                                                         const char v_char, const char q_char) const
 {
-    return format_word64(format_str, c_char, v_char, Format::Upper);
+    return format_word64(format_str, c_char, v_char, q_char, Format::Upper);
 }
 
 }
