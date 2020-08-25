@@ -1,6 +1,6 @@
 # Concept #
 
-The purpose is to provide functions generating random words (std::string) from a syllabary.
+The purpose is to provide functions generating random words (`std::string`) from a syllabary.
 A syllabary has a set of consonants, a set of vowels and a set of codas (other consonants for the last letter).
 A word is built as a sequence of syllables composed of a consonant and a vowel. 
 If the length of the generated word is odd, then a coda is added at the end of the sequence,
@@ -17,7 +17,7 @@ See [task board](https://app.gitkraken.com/glo/board/Xn4ZRDGIwwAqohS0) for futur
 # Install #
 ## Requirements ##
 Binaries:
-- A C++17 compiler (ex: g++-9)
+- A C++20 compiler (ex: g++-10)
 - CMake 3.16 or later
 
 Libraries:
@@ -33,6 +33,14 @@ cmake -P cmake_quick_install.cmake
 Use the following to quickly install a different mode.
 ```
 cmake -DCMAKE_BUILD_TYPE=Debug -P cmake_quick_install.cmake
+```
+
+
+## Uninstall ##
+There is a uninstall cmake script created during installation. You can use it to uninstall properly this library.
+```
+cd /path/to/installed-strn/
+cmake -P cmake_uninstall.cmake
 ```
 
 # How to use
