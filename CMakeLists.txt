@@ -17,7 +17,7 @@ set_build_type_if_undefined()
 # C++ PROJECT
 
 project(wgen
-        VERSION 0.1.4
+        VERSION 0.1.5
         DESCRIPTION "A C++ library providing functions generating random words."
         HOMEPAGE_URL "https://github.com/arapelle/wgen"
         LANGUAGES CXX)
@@ -60,8 +60,6 @@ set(strn_target strn)
 if(NOT TARGET strn)
     string(PREPEND strn_target strn::)
     find_package(strn 0.1.0 REQUIRED CONFIG)
-elseif(NOT strn_VERSION OR strn_VERSION VERSION_LESS 0.1.0 OR NOT strn_VERSION_MAJOR EQUAL 0)
-    message(FATAL_ERROR "Bad strn version '${strn_VERSION}'!")
 endif()
 foreach(target ${project_targets})
     target_link_libraries(${target} PUBLIC ${strn_target})
