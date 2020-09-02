@@ -1,0 +1,9 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(strn 0.1.3)
+
+include(${CMAKE_CURRENT_LIST_DIR}/wgen.cmake)
+check_required_components(wgen)
+
+message(STATUS "Found package @PROJECT_NAME@ @PROJECT_VERSION@")
