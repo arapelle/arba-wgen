@@ -17,7 +17,7 @@ set_build_type_if_undefined()
 # C++ PROJECT
 
 project(wgen
-        VERSION 0.1.5
+        VERSION 0.1.6
         DESCRIPTION "A C++ library providing functions generating random words."
         HOMEPAGE_URL "https://github.com/arapelle/wgen"
         LANGUAGES CXX)
@@ -70,11 +70,11 @@ install_cpp_library_targets(${PROJECT_NAME}
                             TARGETS ${project_targets}
                             INCLUDE_DIRECTORIES "include/${PROJECT_NAME}"
                             NAMESPACE ${PROJECT_NAME}::
-                            )                        
+                            )
 
 # Install package
 install_package(${PROJECT_NAME}
-                VERBOSE_PACKAGE_CONFIG_FILE
+                INPUT_PACKAGE_CONFIG_FILE ${PROJECT_NAME}-config.cmake.in
                 EXPORT_NAMES ${PROJECT_NAME})
 
 if(${PROJECT_NAME}_BUILD_EXAMPLES)
