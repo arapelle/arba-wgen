@@ -17,7 +17,7 @@ set_build_type_if_undefined()
 # C++ PROJECT
 
 project(wgen
-        VERSION 0.1.6
+        VERSION 0.1.7
         DESCRIPTION "A C++ library providing functions generating random words."
         HOMEPAGE_URL "https://github.com/arapelle/wgen"
         LANGUAGES CXX)
@@ -48,6 +48,7 @@ set(sources
 add_cpp_library(${PROJECT_NAME} ${PROJECT_NAME}_BUILD_SHARED_LIB ${PROJECT_NAME}_BUILD_STATIC_LIB
     SHARED ${PROJECT_NAME}
     STATIC ${PROJECT_NAME}-static
+    NAMESPACE arba::
     CXX_STANDARD 20
     INCLUDE_DIRECTORIES include
     OUTPUT_VERSION_HEADER "version.hpp"
@@ -56,20 +57,17 @@ add_cpp_library(${PROJECT_NAME} ${PROJECT_NAME}_BUILD_SHARED_LIB ${PROJECT_NAME}
     BUILT_TARGETS project_targets
     )
 
-set(strn_target strn)
-if(NOT TARGET strn)
-    string(PREPEND strn_target strn::)
-    find_package(strn 0.1.0 REQUIRED CONFIG)
+# Link targets
+if(NOT TARGET arba::strn)
+    find_package(strn 0.1.4 REQUIRED CONFIG)
 endif()
-foreach(target ${project_targets})
-    target_link_libraries(${target} PUBLIC ${strn_target})
-endforeach()
+cpp_library_targets_link_libraries(${PROJECT_NAME} PUBLIC arba::strn)
 
 # Install C++ library
 install_cpp_library_targets(${PROJECT_NAME}
                             TARGETS ${project_targets}
                             INCLUDE_DIRECTORIES "include/${PROJECT_NAME}"
-                            NAMESPACE ${PROJECT_NAME}::
+                            NAMESPACE arba::
                             )
 
 # Install package
