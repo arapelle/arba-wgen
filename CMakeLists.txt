@@ -57,14 +57,11 @@ add_cpp_library(${PROJECT_NAME} ${PROJECT_NAME}_BUILD_SHARED_LIB ${PROJECT_NAME}
     BUILT_TARGETS project_targets
     )
 
-set(strn_target strn)
-if(NOT TARGET strn)
-    string(PREPEND strn_target strn::)
-    find_package(strn 0.1.0 REQUIRED CONFIG)
+# Link targets
+if(NOT TARGET arba::strn)
+    find_package(strn 0.1.4 REQUIRED CONFIG)
 endif()
-foreach(target ${project_targets})
-    target_link_libraries(${target} PUBLIC ${strn_target})
-endforeach()
+cpp_library_targets_link_libraries(${PROJECT_NAME} PUBLIC arba::strn)
 
 # Install C++ library
 install_cpp_library_targets(${PROJECT_NAME}
