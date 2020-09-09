@@ -17,7 +17,7 @@ set_build_type_if_undefined()
 # C++ PROJECT
 
 project(wgen
-        VERSION 0.1.6
+        VERSION 0.1.7
         DESCRIPTION "A C++ library providing functions generating random words."
         HOMEPAGE_URL "https://github.com/arapelle/wgen"
         LANGUAGES CXX)
