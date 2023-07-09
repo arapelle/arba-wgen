@@ -1,4 +1,4 @@
-#include <wgen/default_syllabary.hpp>
+#include <arba/wgen/default_syllabary.hpp>
 #include <gtest/gtest.h>
 #include <type_traits>
 

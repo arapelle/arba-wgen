@@ -46,7 +46,7 @@ cmake -P cmake_uninstall.cmake
 # How to use
 ## Example - Generate a random word
 ```c++
-#include <wgen/default_syllabary.hpp>
+#include <arba/wgen/default_syllabary.hpp>
 #include <iostream>
 
 int main()
@@ -60,7 +60,7 @@ int main()
 
 ## Example - Format a strn::string64
 ```c++
-#include <wgen/default_syllabary.hpp>
+#include <arba/wgen/default_syllabary.hpp>
 #include <strn/io.hpp>
 #include <iostream>
 

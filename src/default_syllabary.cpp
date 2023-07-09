@@ -1,4 +1,4 @@
-#include <wgen/default_syllabary.hpp>
+#include <arba/wgen/default_syllabary.hpp>
 
 namespace wgen
 {

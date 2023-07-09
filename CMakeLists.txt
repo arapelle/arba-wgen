@@ -35,8 +35,8 @@ generate_version_macro_header(generated_version_header
 
 ## Headers:
 set(headers
-    include/wgen/default_syllabary.hpp
-    include/wgen/syllabary.hpp
+    include/arba/wgen/default_syllabary.hpp
+    include/arba/wgen/syllabary.hpp
 )
 
 ## Sources:

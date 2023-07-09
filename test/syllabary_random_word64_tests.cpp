@@ -1,4 +1,4 @@
-#include <wgen/syllabary.hpp>
+#include <arba/wgen/syllabary.hpp>
 #include <gtest/gtest.h>
 #include <sstream>
 #include <cstdlib>
