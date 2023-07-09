@@ -1,5 +1,5 @@
 #include <wgen/default_syllabary.hpp>
-#include <strn/io.hpp>
+#include <arba/strn/io.hpp>
 #include <iostream>
 
 int main()

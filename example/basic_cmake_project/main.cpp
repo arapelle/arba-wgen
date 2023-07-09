@@ -1,6 +1,6 @@
-#include <wgen/version.hpp>
+#include <arba/wgen/version.hpp>
 #include <wgen/default_syllabary.hpp>
-#include <strn/io.hpp>
+#include <arba/strn/io.hpp>
 #include <iostream>
 #include <cstdlib>
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <strn/string64.hpp>
+#include <arba/strn/string64.hpp>
 #include <string>
 #include <string_view>
 #include <vector>
