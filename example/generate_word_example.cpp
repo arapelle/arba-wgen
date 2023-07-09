@@ -1,3 +1,4 @@
+#include <arba/wgen/version.hpp>
 #include <arba/wgen/default_syllabary.hpp>
 #include <iostream>
 
