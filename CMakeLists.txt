@@ -75,7 +75,7 @@ install_cpp_library(
 )
 
 ## Install project package
-install_library_package(${PROJECT_NAME} INPUT_PACKAGE_CONFIG_FILE package-config.cmake.in)
+install_library_package(${PROJECT_NAME} INPUT_PACKAGE_CONFIG_FILE cmake/config/package-config.cmake.in)
 install_uninstall_script(${PROJECT_NAME})
 
 ## Add tests:
