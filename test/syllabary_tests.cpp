@@ -5,7 +5,7 @@
 
 TEST(syllabaray_tests, test_constructor_strv)
 {
-    wgen::syllabary syllabary("tgz", "aeiou", "klr");
+    arba::wgen::syllabary syllabary("tgz", "aeiou", "klr");
 
     std::vector<char> expected_consonants{'t', 'g', 'z'};
     std::vector<char> expected_vowels{'a', 'e', 'i', 'o', 'u'};
@@ -56,11 +56,4 @@ TEST(syllabaray_tests, test_random_word64_1)
     ASSERT_TRUE(vowels.find(word[2]) != std::string_view::npos);
     ASSERT_TRUE(consonants.find(word[3]) != std::string_view::npos);
     ASSERT_TRUE(vowels.find(word[4]) != std::string_view::npos);
-}
-
-int main(int argc, char** argv)
-{
-    ::testing::InitGoogleTest(&argc, argv);
-
-    return RUN_ALL_TESTS();
 }

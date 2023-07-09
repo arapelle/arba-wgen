@@ -147,10 +147,3 @@ TEST(syllabaray_random64_tests, test_random_uppercase_word64)
     ASSERT_TRUE(upper_consonants.find(word[2]) != std::string_view::npos);
     ASSERT_TRUE(upper_vowels.find(word[3]) != std::string_view::npos);
 }
-
-int main(int argc, char** argv)
-{
-    ::testing::InitGoogleTest(&argc, argv);
-
-    return RUN_ALL_TESTS();
-}

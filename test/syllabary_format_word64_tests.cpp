@@ -151,10 +151,3 @@ TEST(syllabaray_format64_tests, test_format_uppercase_word64)
     ASSERT_TRUE(vowels.find(word[2]) != std::string_view::npos);
     ASSERT_TRUE(codas.find(word[3]) != std::string_view::npos);
 }
-
-int main(int argc, char** argv)
-{
-    ::testing::InitGoogleTest(&argc, argv);
-
-    return RUN_ALL_TESTS();
-}

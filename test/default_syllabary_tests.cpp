@@ -15,10 +15,3 @@ TEST(default_syllabaray_tests, test_constructor)
     ASSERT_EQ(syllabary.vowels(), expected_vowels);
     ASSERT_EQ(syllabary.codas(), expected_codas);
 }
-
-int main(int argc, char** argv)
-{
-    ::testing::InitGoogleTest(&argc, argv);
-
-    return RUN_ALL_TESTS();
-}
