@@ -49,8 +49,8 @@ set(sources
 add_cpp_library(
     SHARED ${PROJECT_NAME}
     STATIC ${PROJECT_NAME}-static
-    BUILD_SHARED ${BUILD_${CMAKE_PROJECT_NAME}}
-    BUILD_STATIC ${BUILD_${CMAKE_PROJECT_NAME}-static}
+    BUILD_SHARED BUILD_arba-arba
+    BUILD_STATIC BUILD_arba-arba-static
     HEADERS ${headers} ${generated_version_header}
     SOURCES ${sources}
     CXX_STANDARD 20
