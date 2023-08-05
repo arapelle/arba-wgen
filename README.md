@@ -14,12 +14,13 @@ random_world(5) -> vcvcv (ex: akamo)
 
 # Install #
 ## Requirements ##
+
 Binaries:
 - A C++20 compiler (ex: g++-13)
 - CMake 3.26 or later
 
 Libraries:
-- [strn](https://github.com/arapelle/strn) 0.2.0 or later
+- [arba-strn](https://github.com/arapelle/arba-strn) 0.2.0 or later
 
 Testing Libraries (optional):
 - [Google Test](https://github.com/google/googletest) 1.13 or later (optional)
@@ -34,7 +35,6 @@ Use the following to quickly install a different mode.
 ```
 cmake -P cmake/scripts/quick_install.cmake -- TESTS BUILD Debug DIR /tmp/local
 ```
-
 
 ## Uninstall ##
 There is a uninstall cmake script created during installation. You can use it to uninstall properly this library.
@@ -61,7 +61,7 @@ int main()
 ## Example - Format a strn::string64
 ```c++
 #include <arba/wgen/default_syllabary.hpp>
-#include <strn/io.hpp>
+#include <arba/strn/io.hpp>
 #include <iostream>
 
 int main()
@@ -72,9 +72,9 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-## Example - Using *wgen* in a CMake project
-See *basic_cmake_project* example, and more specifically the *CMakeLists.txt* to see how to use *wgen* in your CMake projects.
+## Example - Using *arba-wgen* in a CMake project
+See *basic_cmake_project* example, and more specifically the *CMakeLists.txt* to see how to use *arba-wgen* in your CMake projects.
 
 # License
 
-[MIT License](./LICENSE.md) © wgen
+[MIT License](./LICENSE.md) © arba-wgen
