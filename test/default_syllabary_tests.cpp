@@ -1,4 +1,4 @@
-#include <wgen/default_syllabary.hpp>
+#include <arba/wgen/default_syllabary.hpp>
 #include <gtest/gtest.h>
 #include <type_traits>
 
@@ -14,11 +14,4 @@ TEST(default_syllabaray_tests, test_constructor)
     ASSERT_EQ(syllabary.consonants(), expected_consonants);
     ASSERT_EQ(syllabary.vowels(), expected_vowels);
     ASSERT_EQ(syllabary.codas(), expected_codas);
-}
-
-int main(int argc, char** argv)
-{
-    ::testing::InitGoogleTest(&argc, argv);
-
-    return RUN_ALL_TESTS();
 }

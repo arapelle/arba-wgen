@@ -1,13 +1,16 @@
 #pragma once
 
-#include <strn/string64.hpp>
+#include <arba/strn/string64.hpp>
 #include <string>
 #include <string_view>
 #include <vector>
 #include <cstdint>
 
+inline namespace arba
+{
 namespace wgen
 {
+
 class syllabary
 {
 public:
@@ -130,4 +133,5 @@ inline strn::string64 syllabary::format_uppercase_word64(std::string_view format
     return format_word64(format_str, c_char, v_char, q_char, Format::Upper);
 }
 
+}
 }

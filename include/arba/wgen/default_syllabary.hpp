@@ -2,8 +2,11 @@
 
 #include "syllabary.hpp"
 
+inline namespace arba
+{
 namespace wgen
 {
+
 /**
  * @brief The default_syllabary class
  *
@@ -16,4 +19,6 @@ class default_syllabary : public syllabary
 public:
     default_syllabary();
 };
+
+}
 }

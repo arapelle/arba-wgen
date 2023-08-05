@@ -1,4 +1,4 @@
-#include <wgen/syllabary.hpp>
+#include <arba/wgen/syllabary.hpp>
 #include <gtest/gtest.h>
 #include <sstream>
 #include <cstdlib>
@@ -150,11 +150,4 @@ TEST(syllabaray_format_tests, test_format_uppercase_word)
     ASSERT_TRUE(consonants.find(word[1]) != std::string_view::npos);
     ASSERT_TRUE(vowels.find(word[2]) != std::string_view::npos);
     ASSERT_TRUE(codas.find(word[3]) != std::string_view::npos);
-}
-
-int main(int argc, char** argv)
-{
-    ::testing::InitGoogleTest(&argc, argv);
-
-    return RUN_ALL_TESTS();
 }
