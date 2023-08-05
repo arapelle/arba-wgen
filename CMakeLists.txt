@@ -76,7 +76,7 @@ install_cpp_library(
 
 ## Install project package
 install_library_package(${PROJECT_NAME} INPUT_PACKAGE_CONFIG_FILE cmake/config/package-config.cmake.in)
-install_uninstall_script(${PROJECT_NAME})
+install_uninstall_script(${PROJECT_NAME} FILENAME uninstall.cmake)
 
 ## Add tests:
 option_or_set_ifdef(BUILD_${PROJECT_NAME}_TESTS "Build ${PROJECT_NAME} tests or not" OFF BUILD_arba-arba_TESTS)
