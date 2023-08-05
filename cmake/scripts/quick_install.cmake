@@ -71,7 +71,7 @@ endif()
 
 if(ARG_TESTS)
   message(STATUS "*  TESTS")
-  execute_process(COMMAND ${CMAKE_CTEST_COMMAND}  WORKING_DIRECTORY ${build_dir} RESULT_VARIABLE cmd_res)
+  execute_process(COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure WORKING_DIRECTORY ${build_dir} RESULT_VARIABLE cmd_res)
   if(NOT cmd_res EQUAL 0)
       file(TOUCH ${error_file})
       return()
