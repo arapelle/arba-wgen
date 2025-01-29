@@ -65,7 +65,7 @@ TEST(syllabaray_random_tests, test_random_word_3)
 TEST(syllabaray_random_tests, test_random_word_name)
 {
     wgen::syllabary syllabary("tgz", "AEIOU");
-    std::string word = syllabary.random_word(4, wgen::syllabary::Format::Name);
+    std::string word = syllabary.random_word(4, wgen::syllabary::format::name);
 
     ASSERT_EQ(word.length(), 4);
     std::string_view upper_consonants = "TGZ";
@@ -80,7 +80,7 @@ TEST(syllabaray_random_tests, test_random_word_name)
 TEST(syllabaray_random_tests, test_random_word_lower)
 {
     wgen::syllabary syllabary("TGZ", "AEIOU");
-    std::string word = syllabary.random_word(4, wgen::syllabary::Format::Lower);
+    std::string word = syllabary.random_word(4, wgen::syllabary::format::lower);
 
     ASSERT_EQ(word.length(), 4);
     std::string_view lower_consonants = "tgz";
@@ -94,7 +94,7 @@ TEST(syllabaray_random_tests, test_random_word_lower)
 TEST(syllabaray_random_tests, test_random_word_upper)
 {
     wgen::syllabary syllabary("tgz", "aeiou");
-    std::string word = syllabary.random_word(4, wgen::syllabary::Format::Upper);
+    std::string word = syllabary.random_word(4, wgen::syllabary::format::upper);
 
     ASSERT_EQ(word.length(), 4);
     std::string_view upper_consonants = "TGZ";
