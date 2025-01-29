@@ -20,5 +20,5 @@ public:
     default_syllabary();
 };
 
-}
-}
+} // namespace wgen
+} // namespace arba

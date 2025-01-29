@@ -1,7 +1,9 @@
 #include <arba/wgen/syllabary.hpp>
+
 #include <gtest/gtest.h>
-#include <sstream>
+
 #include <cstdlib>
+#include <sstream>
 
 TEST(syllabaray_random64_tests, test_random_word64_1)
 {

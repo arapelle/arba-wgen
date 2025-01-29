@@ -1,7 +1,9 @@
 #include <arba/wgen/syllabary.hpp>
+
 #include <gtest/gtest.h>
-#include <sstream>
+
 #include <cstdlib>
+#include <sstream>
 
 TEST(syllabaray_format_tests, test_format_word_1)
 {
