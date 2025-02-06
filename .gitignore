@@ -1,3 +1,4 @@
 CMakeLists.txt.user
+CMakeUserPresets.json
+build/
 *.pro.user
-build

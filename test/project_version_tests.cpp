@@ -1,11 +1,11 @@
 #include <arba/wgen/version.hpp>
-#include <gtest/gtest.h>
-#include <cstdlib>
 
-TEST(project_version_tests, test_version_macros)
+#include <gtest/gtest.h>
+
+TEST(project_version_tests, test_version_core)
 {
-    ASSERT_EQ(ARBA_WGEN_VERSION_MAJOR, 0);
-    ASSERT_EQ(ARBA_WGEN_VERSION_MINOR, 2);
-    ASSERT_EQ(ARBA_WGEN_VERSION_PATCH, 0);
-    ASSERT_STREQ(ARBA_WGEN_VERSION, "0.2.0");
+    constexpr unsigned major = 0;
+    constexpr unsigned minor = 3;
+    constexpr unsigned patch = 0;
+    static_assert(arba::wgen::version.core() == arba::cppx::numver(major, minor, patch));
 }

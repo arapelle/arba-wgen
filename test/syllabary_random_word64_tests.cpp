@@ -1,7 +1,9 @@
 #include <arba/wgen/syllabary.hpp>
+
 #include <gtest/gtest.h>
-#include <sstream>
+
 #include <cstdlib>
+#include <sstream>
 
 TEST(syllabaray_random64_tests, test_random_word64_1)
 {
@@ -65,7 +67,7 @@ TEST(syllabaray_random64_tests, test_random_word64_3)
 TEST(syllabaray_random64_tests, test_random_word64_name)
 {
     wgen::syllabary syllabary("tgz", "AEIOU");
-    strn::string64 word = syllabary.random_word64(4, wgen::syllabary::Format::Name);
+    strn::string64 word = syllabary.random_word64(4, wgen::syllabary::format::name);
 
     ASSERT_EQ(word.length(), 4);
     std::string_view upper_consonants = "TGZ";
@@ -80,7 +82,7 @@ TEST(syllabaray_random64_tests, test_random_word64_name)
 TEST(syllabaray_random64_tests, test_random_word64_lower)
 {
     wgen::syllabary syllabary("TGZ", "AEIOU");
-    strn::string64 word = syllabary.random_word64(4, wgen::syllabary::Format::Lower);
+    strn::string64 word = syllabary.random_word64(4, wgen::syllabary::format::lower);
 
     ASSERT_EQ(word.length(), 4);
     std::string_view lower_consonants = "tgz";
@@ -94,7 +96,7 @@ TEST(syllabaray_random64_tests, test_random_word64_lower)
 TEST(syllabaray_random64_tests, test_random_word64_upper)
 {
     wgen::syllabary syllabary("tgz", "aeiou");
-    strn::string64 word = syllabary.random_word64(4, wgen::syllabary::Format::Upper);
+    strn::string64 word = syllabary.random_word64(4, wgen::syllabary::format::upper);
 
     ASSERT_EQ(word.length(), 4);
     std::string_view upper_consonants = "TGZ";
