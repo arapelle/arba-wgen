@@ -56,7 +56,7 @@ class ArbaWgenRecipe(ConanFile):
         check_min_cppstd(self, 20)
     
     def requirements(self):
-        self.requires("arba-strn/[^0.5]", transitive_headers=True, transitive_libs=True)
+        self.requires("arba-strn/[^0.6]", transitive_headers=True, transitive_libs=True)
 
     def build_requirements(self):
         self.test_requires("gtest/[^1.14]")
